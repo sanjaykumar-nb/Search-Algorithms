@@ -19,32 +19,76 @@ To write a program to perform linear search and binary search using python progr
 ## Program:
 i)	#Use a linear search method to match the item in a list.
 ```
-
-
-
+a=eval(input())
+b=int(input())
+a.sort()
+print(a)
+def linsc(a,b):
+    k=0
+    for i in a:
+        if(b==i):
+           return 1,k
+        else:
+           k+=1
+    return -1,k
+d,k=linsc(a,b)
+if(d==1):
+    print("Element found at index: ",k)
+else:
+    print("Element not found")
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
-
-
-
-
-
+lst=eval(input())
+n=int(input())
+lst.sort()
+low=0
+high=len(lst)-1
+print(lst)
+def binsc(lst,n,low,high):
+    while(low<=high):
+        mid=low+(high-low)//2
+        if(lst[mid]==n):
+            return 1,mid
+        elif(n>lst[mid]):
+            low=mid+1
+        else:
+            high=mid-1
+    return -1,mid
+d,mid=binsc(lst,n,low,high)
+if(d==1):
+    print("Element found at index: ",mid)
+else:
+    print("Element not found")
 ```
 iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
-
-
-
-
-
+def binary(lst , n, low, high):
+    if low<=high:
+        mid = low+ (high -low)//2
+        if lst[mid]==n:
+            return mid
+        elif lst[mid]>n:
+            return binary(lst , n, low, mid-1)
+        else:
+             return binary(lst , n , mid+1, high)
+    else:
+        return -1
+lst = eval(input())
+lst.sort()
+n=eval(input())
+result = binary(lst,n,0,len(lst)-1)
+if(result==-1):
+    print(lst)
+    print("Element not found")
+else:
+    print(lst)
+    print("Element found at index: " , result)
 ```
 ## Sample Input and Output
-
-
-
-
-
+![alt text](<Screenshot11 2024-04-15 174939.png>)
+![alt text](<Screenshot22 2024-04-15 175004.png>)
+![alt text](<Screenshot33 2024-04-15 175022.png>)
 
 ## Result
 Thus the linear search and binary search algorithm is implemented using python programming.
